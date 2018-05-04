@@ -1,0 +1,3 @@
+gcc -shared -Wall -O3 -s lua_blocks_test.c -o %luadir%\bin\blocks.dll -I %luadir%\src -I %luadir%\..\Unicode -L %luadir%\bin -l lua53
+lua -e "blocks, inspect = require 'blocks', require 'inspect' print(blocks.find 'Greek', blocks[1]) for i, block in blocks.match 'latin' do print(i, block) end" -i
+:: lua -e "blocks, inspect = require 'blocks', require 'inspect' print(blocks.find 'Greek') for i, block in blocks.match 'latin' do print(i, block) end" -i
