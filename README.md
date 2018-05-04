@@ -12,9 +12,9 @@ Returns the first block matching `query`. Query begins at one-based index `posit
 Returns a table of all blocks matching `query`.
 
 ## `match(query)`
-Returns an iterator function whose first upvalue is `query` that iterates over all blocks matching `query`.
+Returns an iterator function, whose first upvalue is `query`, that iterates over all blocks matching `query`. Iterator function is identical to `blocks.next` except for its upvalue. Upvalue is used so that query doesn't have to be lowercased every time the iterator function is called.
 
-## `next(query, position)`
+## `next(query[, position])`
 The iterator function returned by `match`. Finds the next block matching `query` after index `position` (which defaults to `0`) and returns its index and it, such that `for i, block in blocks.next('latin', 0) do end` iterates over all blocks matching `latin`.
 
 ## `cptoblock(codepoint)`
