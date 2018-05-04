@@ -406,9 +406,15 @@ static int lua_block_index (lua_State * L) {
 						return 1;
 					}
 				case 't':
-					if (strcmp(k, "totable") == 0) {
-						lua_pushcfunction(L, lua_block_to_table);
-						return 1;
+					if (strncmp(k, "to", 2) == 0) {
+						if (strcmp(k + 2, "table") == 0) {
+							lua_pushcfunction(L, lua_block_to_table);
+							return 1;
+						}
+						else if (strcmp(k + 2, "string") == 0) {
+							lua_pushcfunction(L, lua_block_tostring);
+							return 1;
+						}
 					}
 			}
 			int codepoint = -1;
