@@ -406,7 +406,7 @@ static int lua_block_index (lua_State * L) {
 						return 1;
 					}
 				case 't':
-					if (strncmp(k, "to", 2) == 0) {
+					if (k[1] == 'o') {
 						if (strcmp(k + 2, "table") == 0) {
 							lua_pushcfunction(L, lua_block_to_table);
 							return 1;
